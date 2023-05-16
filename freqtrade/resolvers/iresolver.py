@@ -63,7 +63,7 @@ class IResolver:
         if cls.extra_path and (extra := config.get(cls.extra_path)):
             abs_paths.insert(0, Path(extra).resolve())
 
-        return abs_paths
+        return set(abs_paths)
 
     @classmethod
     def _get_valid_object(cls, module_path: Path, object_name: Optional[str],
